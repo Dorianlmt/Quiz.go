@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz de Pâques</title>
+    <style>
+        /* Styles pour le header */
+        header {
+            text-align: center;
+            max-width: 1024px; /* Largeur maximale */
+            width: 90%; /* Largeur relative à 90% */
+            margin: 20px auto; /* Marge automatique pour centrer */
+        }
+
+        header img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px; /* Coins arrondis */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre douce */
+        }
+
+        /* Styles pour les boutons */
+        button.option-btn {
+            display: block;
+            margin: 10px auto; /* Marge automatique */
+            padding: 15px 30px; /* Rembourrage */
+            background-color: #256eff; /* Couleur de fond */
+            color: #fff; /* Couleur du texte */
+            border: none; /* Suppression de la bordure */
+            border-radius: 5px; /* Coins arrondis */
+            cursor: pointer; /* Curseur de pointeur */
+            font-size: 16px; /* Taille de police */
+            transition: background-color 0.3s; /* Transition fluide */
+        }
+
+        button.option-btn:hover {
+            background-color: #ff9900; /* Changement de couleur au survol */
+        }
+
+        .correct-answer {
+            background-color: #66cc66; /* Couleur de fond pour la réponse correcte */
+        }
+
+        .wrong-answer {
+            background-color: #ff6666; /* Couleur de fond pour la réponse incorrecte */
+        }
+
+        /* Styles pour le corps de la page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #c3ffdb; /* Couleur de fond */
+            text-align: center; /* Alignement du texte au centre */
+        }
+
+        h1 {
+            color: #ff6600; /* Couleur de texte pour le titre */
+        }
+
+        h3 {
+            color: #004080; /* Couleur de texte pour les questions */
+        }
+
+        .message {
+            color: red; /* Couleur du texte pour le message */
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .falling-image {
+            width: 100px;
+            position: fixed;
+            left: 0;
+            top: -200px; /* Initial position en dehors de l'écran */
+            animation: fall 5s linear infinite; /* Animation de chute */
+            z-index: 999; /* Assure que l'image est au-dessus de tout le contenu */
+        }
+
+        .falling-image-2 {
+            position: fixed;
+            right: 0px; /* Décalage par rapport à la première image */
+            top: -200px; /* Initial position en dehors de l'écran */
+            animation: fall 7s linear infinite; /* Animation de chute */
+            z-index: 998; /* Assure que l'image est en-dessous de la première */
+            width: 80px; /* Largeur de l'image */
+            height: auto; /* Hauteur automatique pour conserver les proportions */
+        }
+    </style>
+    <script>
+        function checkAnswer(button, isCorrect) {
+            if (!isCorrect) {
+                button.classList.add('wrong-answer');
+                document.getElementById('message').innerText = 'Réponse fausse';
+            }
+        }
+    </script>
+</head>
+<body>
+    <img src="/img/falling.jpg" alt="Falling image" class="falling-image">
+    <img src="/img/cloche.png" alt="Falling image 2" class="falling-image-2">
+    <header><img src="/img/header.png" alt="header"></header>
+    <h1>Quiz de Pâques</h1>
+    <h3>{{.Text}}</h3>
+    <div class="message" id="message"></div>
+    <form action="/question?id={{.ID}}" method="post">
+        {{range $j, $option := .Options}}
+            <button class="option-btn" type="submit" name="option" value="{{$j}}" onclick="checkAnswer(this, {{$option.IsAnswer}})">{{$option.Text}}</button>
+        {{end}}
+    </form>
+</body>
+</html>

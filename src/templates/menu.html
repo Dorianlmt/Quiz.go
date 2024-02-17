@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        header {
+            text-align: center;
+            max-width: 1024px; /* Largeur maximale */
+            width: 90%; /* Largeur relative à 90% */
+            margin: 20px auto; /* Marge automatique pour centrer */
+        }
+
+        header img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px; /* Coins arrondis */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre douce */
+        }
+
+        button {
+            background-color: #256eff; /* Couleur de fond */
+            color: #fff; /* Couleur du texte */
+            border: none; /* Suppression de la bordure */
+            border-radius: 5px; /* Coins arrondis */
+            padding: 10px 20px; /* Rembourrage */
+            margin: 0 10px; /* Marge autour des boutons */
+            font-size: 16px; /* Taille de police */
+            cursor: pointer; /* Curseur de pointeur */
+            transition: background-color 0.3s; /* Transition fluide */
+        }
+
+        button:hover {
+            background-color: #ff9900; /* Changement de couleur au survol */
+        }
+
+    </style>
+</head>
+<body>
+    <header><img src="/img/header.png" alt="header"></header>
+
+    <nav>
+        <div style="text-align: center;">
+            <button onclick="window.location.href = '/jeux';">Jouer au quiz</button>
+            <button onclick="window.location.href = '/information';">Information</button>
+        </div>
+    </nav>
+</body>
+</html>

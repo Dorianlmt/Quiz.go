@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Félicitations !</title>
+    <style>
+        @keyframes jump {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+    
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Couleur de fond de la page */
+            position: relative; /* Assure que les éléments absolus sont positionnés relativement au corps */
+        }
+
+        h1, p {
+            text-align: center; /* Centrage horizontal */
+        }
+
+        .rabbit-container {
+            top: 0; /* Positionne l'image en haut de la page */
+            left: 50%; /* Centre horizontalement l'image */
+            transform: translateX(-50%); /* Décale l'image de -50% de sa propre largeur pour la centrer */
+            text-align: center; /* Centrage horizontal */
+            animation: jump 1s infinite; /* Applique l'animation de saut au lapin */
+        }
+
+        .rabbit-container img {
+            max-width: 200px; /* Largeur maximale de l'image */
+            height: auto; /* Hauteur automatique pour conserver les proportions */
+        }
+
+        form {
+            text-align: center; /* Centrage horizontal */
+            margin-top: 20px; /* Marge supérieure pour espacement */
+        }
+
+        button, .link-button {
+            padding: 10px 20px; /* Rembourrage pour un aspect agréable */
+            background-color: #4CAF50; /* Couleur de fond du bouton */
+            color: white; /* Couleur du texte du bouton */
+            border: none; /* Supprime la bordure du bouton */
+            border-radius: 5px; /* Coins arrondis */
+            cursor: pointer; /* Curseur de pointage */
+            font-size: 16px; /* Taille de la police */
+            margin: 10px; /* Marge autour du bouton */
+            text-decoration: none; /* Supprimer la décoration du lien */
+            display: inline-block; /* Permettre de définir la largeur et la hauteur */
+        }
+
+        button:hover, .link-button:hover {
+            background-color: #45a049; /* Changement de couleur au survol */
+        }
+
+        button:active, .link-button:active {
+            background-color: #3e8e41; /* Changement de couleur lorsque cliqué */
+        }
+    </style>
+</head>
+<body>
+    <h1>Félicitations !</h1>
+    <p>Vous avez terminé le quiz.</p>
+    <p>Passez de joyeuses Pâques.</p>
+    <div class="rabbit-container">
+        <img src="/img/cursor.png" alt="Lapin">
+    </div>
+    <form action="/restart" method="get">
+        <button type="submit">Revenir au menu</button>
+    </form>
+    <!-- Bouton pour aller vers doricard.com -->
+    <a href="https://www.doricard.com" class="link-button">Visiter doricard.com</a>
+</body>
+</html>
