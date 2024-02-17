@@ -16,7 +16,7 @@ Avant de commencer, assurez-vous d'avoir installé Go sur votre système.
 
 1. Clonez ce dépôt sur votre machine :
 
-git clone <https://ytrack.learn.ynov.com/git/ldorian/quiz.git>
+git clone git@github.com:Dorianlmt/Quiz.go.git
 
 2. Accédez au répertoire du projet :
 
